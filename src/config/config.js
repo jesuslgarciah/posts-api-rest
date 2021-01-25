@@ -5,9 +5,6 @@ module.exports = {
     PORT: process.env.PORT || 3000
   },
   db: {
-    USER: process.env.DB_USER,
-    PASSWORD: process.env.DB_PASSWORD,
-    HOST: process.env.DB_HOST,
-    NAME: process.env.DB_NAME
+    DB_URL: `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`
   }
 }
