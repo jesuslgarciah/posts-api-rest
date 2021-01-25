@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const response = require('../../responses/response');
+const response = require('../responses/response');
 
 router.get('/', async function(req, res, next) {
   try {

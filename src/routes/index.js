@@ -1,5 +1,5 @@
-const users = require('../components/users/router');
-const posts = require('../components/posts/router');
+const users = require('./users');
+const posts = require('./posts');
 
 function routes(app){
   app.use('/api/users', users);
