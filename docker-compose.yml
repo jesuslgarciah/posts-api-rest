@@ -1,17 +1,17 @@
-version: "3"
+version: '3.3'
 services:
   app:
     container_name: api
     build: .
-    command: npm run dev
     env_file:
       - ./.env
     ports:
-      - "${PORT}:${PORT}"
+      - '${PORT}:${PORT}'
     environment:
-      DB_HOST: host.docker.internal
+      DB_HOST: localhost
     volumes:
       - .:/app/
+    entrypoint: ['/bin/bash', './entrypoint.sh']
     depends_on:
       - db
 
@@ -23,23 +23,11 @@ services:
     env_file:
       - ./.env
     ports:
-      - "5432:5432"
+      - '5432:5432'
     environment:
       - PGDATA=/var/lib/postgresql/data/pgdata
       - POSTGRES_USER=${DB_USER_DEV}
       - POSTGRES_PASSWORD=${DB_PWD_DEV}
-    restart: always
-
-  # pgadmin:
-  #   image: dpage/pgadmin4
-  #   depends_on:
-  #     - db
-  #   ports:
-  #     - "5555:80"
-  #   environment:
-  #     PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
-  #     PGADMIN_DEFAULT_PASSWORD: admin
-  #   restart: unless-stopped
 
 volumes:
   app-db-data:

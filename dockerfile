@@ -2,11 +2,11 @@ FROM node:14
 
 WORKDIR /app
 
-COPY ./package.json .
-COPY ./package-lock.json .
+COPY package.json /app/
+
+RUN npm install -g nodemon
 
 RUN npm install
 
-COPY . .
+COPY ./ /app/
 
-CMD ["node", "./src/server.js"]
