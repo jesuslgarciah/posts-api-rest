@@ -1,5 +1,6 @@
-database/
 node_modules/
+.git/
 .gitignore
 .env.example
 .sequelizerc
+.dockerignore
