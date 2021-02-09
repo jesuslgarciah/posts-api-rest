@@ -1,12 +1,12 @@
-FROM node:14
+FROM node:13
 
-WORKDIR /app
+WORKDIR /app/
 
 COPY package.json /app/
 
-RUN npm install -g nodemon
+# RUN npm install -g nodemon
 
 RUN npm install
 
-COPY ./ /app/
+COPY . /app/
 
