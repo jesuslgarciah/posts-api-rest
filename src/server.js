@@ -14,7 +14,7 @@ app.get("/", async function(req, res, next){
   try {
     response.success(req, res, "Server is running 🟢", 200);
   } catch (error) {
-    response.error(res, res, error.message, res.status);
+    response.error(res, res, error.message, error.status);
   }
 })
 
